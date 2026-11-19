@@ -11,21 +11,23 @@ venv/
 .vscode/
 *.iml
 
-# Data & heavy artifacts (keep docs, ignore blobs)
+# Data blobs
 data/raw/
 data/processed/
 *.zip
-*.pt
-*.pth
 *.onnx
 *.ckpt
-artifacts/checkpoints/
+
+# Heavy model weights (keep history.json via -f if needed)
+*.pt
+*.pth
+artifacts/checkpoints/*.pt
 artifacts/runs/
 wandb/
 runs/
 lightning_logs/
 
-# Notebooks checkpoints
+# Notebooks
 .ipynb_checkpoints/
 
 # OS
@@ -33,12 +35,5 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 
-# Temp PDF extracts
+# Temp
 *_extracted.txt
-
-data/raw/
-artifacts/checkpoints/
-artifacts/plots/
-artifacts/reports/
-*.pth
-*.pt
