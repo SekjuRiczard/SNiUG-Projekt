@@ -1,0 +1,59 @@
+{
+  "counts": {
+    "with_mask": 2164,
+    "without_mask": 1930
+  },
+  "total": 4094,
+  "balance": {
+    "with_mask": 0.5286,
+    "without_mask": 0.4714
+  },
+  "corrupt_count": 0,
+  "corrupt_examples": [],
+  "split_sizes": {
+    "train": 2865,
+    "val": 613,
+    "test": 616
+  },
+  "split_class_train": {
+    "0": 1514,
+    "1": 1351
+  },
+  "image_size_mode": [
+    [
+      [
+        320,
+        428
+      ],
+      213
+    ],
+    [
+      [
+        100,
+        100
+      ],
+      157
+    ],
+    [
+      [
+        320,
+        433
+      ],
+      46
+    ],
+    [
+      [
+        1000,
+        1000
+      ],
+      31
+    ],
+    [
+      [
+        800,
+        800
+      ],
+      26
+    ]
+  ]
+}
