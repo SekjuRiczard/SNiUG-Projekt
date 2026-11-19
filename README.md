@@ -29,6 +29,11 @@
 | PR-AUC | 0.932 |
 | Parametry | 249 922 (wszystkie trenowalne, from scratch) |
 
+## Wnioski / ograniczenia
+Pomimo dobrego **accuracy (~86%)** na zbiorze testowym, sama metryka nie gwarantuje poprawnego rozumowania sieci.  
+W GUI (Grad-CAM) widać przypadki, w których mapa aktywacji **nie skupia się na ustach/nosie (masce)**, tylko na **elementach tła lub ubrania**. Model potrafi wtedy zwrócić wysoką pewność Softmax przy błędnej lub „podejrzanej” decyzji (*shortcut learning*).  
+Wniosek: wyniki liczbowe trzeba zestawiać z XAI; baseline from scratch jest użyteczny do porównania z fine-tuningiem, ale wymaga ostrożnej interpretacji w zastosowaniach praktycznych.
+
 ## GUI (wrzuć zdjęcie w oknie)
 ```bash
 # WSL:

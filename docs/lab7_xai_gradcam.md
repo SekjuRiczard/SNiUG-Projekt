@@ -15,3 +15,7 @@ python scripts/run_gradcam.py
 ```
 
 Artefakty: `artifacts/plots/gradcam/`, `artifacts/reports/gradcam_examples.json`
+
+## Wnioski z obserwacji Grad-CAM
+Mimo dobrego accuracy modelu zdarzają się zdjęcia, na których Grad-CAM **nie rejestruje poprawnie siatki uwagi na masce**, tylko aktywuje **tło / ubranie / inne elementy kadru**.  
+To ograniczenie uczenia od zera: wysoki Softmax nie zawsze oznacza, że sieć „patrzy” na cechę domenową. Dlatego XAI jest obowiązkowym uzupełnieniem tabeli metryk (Lab6).
