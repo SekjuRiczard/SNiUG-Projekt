@@ -1,0 +1,30 @@
+[
+  {
+    "path": "/home/dawid/datasets/mask/dataset/with_mask/with_mask_1740.jpg",
+    "pred": "without_mask",
+    "prob_with_mask": 0.08819069713354111,
+    "prob_without_mask": 0.9118092656135559,
+    "overlay": "/mnt/c/Users/Dawid/Desktop/Studia/Sieci neuronowe i uczenie glebokie PROJEKT/SNiUG-Projekt/artifacts/plots/gradcam/gradcam_with_mask_1740_without_mask.png"
+  },
+  {
+    "path": "/home/dawid/datasets/mask/dataset/with_mask/with_mask_1899.jpg",
+    "pred": "with_mask",
+    "prob_with_mask": 0.9114693403244019,
+    "prob_without_mask": 0.08853067457675934,
+    "overlay": "/mnt/c/Users/Dawid/Desktop/Studia/Sieci neuronowe i uczenie glebokie PROJEKT/SNiUG-Projekt/artifacts/plots/gradcam/gradcam_with_mask_1899_with_mask.png"
+  },
+  {
+    "path": "/home/dawid/datasets/mask/dataset/with_mask/with_mask_1422.png",
+    "pred": "with_mask",
+    "prob_with_mask": 0.8757039308547974,
+    "prob_without_mask": 0.12429611384868622,
+    "overlay": "/mnt/c/Users/Dawid/Desktop/Studia/Sieci neuronowe i uczenie glebokie PROJEKT/SNiUG-Projekt/artifacts/plots/gradcam/gradcam_with_mask_1422_with_mask.png"
+  },
+  {
+    "path": "/home/dawid/datasets/mask/dataset/without_mask/without_mask_1387.jpg",
+    "pred": "with_mask",
+    "prob_with_mask": 0.7046962976455688,
+    "prob_without_mask": 0.29530373215675354,
+    "overlay": "/mnt/c/Users/Dawid/Desktop/Studia/Sieci neuronowe i uczenie glebokie PROJEKT/SNiUG-Projekt/artifacts/plots/gradcam/gradcam_without_mask_1387_with_mask.png"
+  }
+]
