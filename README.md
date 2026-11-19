@@ -46,4 +46,5 @@ Zasady:
 - Lokalna kopia robocza może być w katalogu obok repo (`../Projekt/archive.zip`) — szczegóły w `docs/`.
 
 ## Środowisko
-Trening na GPU (NVIDIA GTX 1650 Ti) w **WSL2 + PyTorch CUDA**. Szczegóły instalacji: `docs/env_wsl_gpu.md` (uzupełniane wraz z Lab4 / setupem).
+Trening na GPU (NVIDIA GTX 1650 Ti) w **WSL2 + PyTorch CUDA** — **gotowe i zweryfikowane**.  
+Szczegóły: [`docs/env_wsl_gpu.md`](docs/env_wsl_gpu.md), test: `scripts/check_gpu.py`.
