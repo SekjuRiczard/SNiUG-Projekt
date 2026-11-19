@@ -5,7 +5,8 @@ Implementacja i dokumenty są dokładane przyrostowo: po Lab *N* w `main` jest w
 
 | Lab | Plik / katalog | Status |
 |-----|----------------|--------|
-| 1 | `lab1_karta_projektu.md` | ukończone (branch `lab1-karta-projektu`) |
-| 2 | `lab2_specyfikacja_architektury.md` | planowane |
-| 3 | `lab3_eda_i_walidacja.md` (+ ewentualne skrypty EDA) | planowane |
-| 4 | `lab4_trening_i_ewaluacja.md` + `src/` | planowane |
+| 1 | `lab1_karta_projektu.md` | ukończone (branch `lab1-karta-projektu`, zmergowane do `main`) |
+| 2 | `lab2_specyfikacja_architektury.md` | planowane (`lab2-specyfikacja-architektury`) |
+| 3 | `lab3_eda_i_walidacja.md` (+ ewentualne skrypty EDA) | planowane (`lab3-eda-walidacja`) |
+| 4 | `lab4_trening_i_ewaluacja.md` + `src/` | planowane (`lab4-trening-from-scratch`) |
+| — | `env_wsl_gpu.md` + `scripts/check_gpu.py` | środowisko GPU WSL gotowe |
