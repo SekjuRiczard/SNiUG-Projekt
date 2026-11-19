@@ -17,5 +17,6 @@ python scripts/run_gradcam.py
 Artefakty: `artifacts/plots/gradcam/`, `artifacts/reports/gradcam_examples.json`
 
 ## Wnioski z obserwacji Grad-CAM
-Mimo dobrego accuracy modelu zdarzają się zdjęcia, na których Grad-CAM **nie rejestruje poprawnie siatki uwagi na masce**, tylko aktywuje **tło / ubranie / inne elementy kadru**.  
-To ograniczenie uczenia od zera: wysoki Softmax nie zawsze oznacza, że sieć „patrzy” na cechę domenową. Dlatego XAI jest obowiązkowym uzupełnieniem tabeli metryk (Lab6).
+Trzeba weryfikować, czy sieć uczy się na **pożądanych** elementach obrazu (maska / usta / nos), a nie na **niepożądanych** (tło, ściana, ubranie itd.).  
+Mimo dobrego accuracy zdarzają się zdjęcia, na których Grad-CAM **nie siedzi na masce**, tylko aktywuje tło lub inne obiekty.  
+Wysoki Softmax nie gwarantuje poprawnej cechy decyzyjnej — XAI jest obowiązkowym uzupełnieniem metryk z Lab6.

@@ -30,9 +30,12 @@
 | Parametry | 249 922 (wszystkie trenowalne, from scratch) |
 
 ## Wnioski / ograniczenia
-Pomimo dobrego **accuracy (~86%)** na zbiorze testowym, sama metryka nie gwarantuje poprawnego rozumowania sieci.  
-W GUI (Grad-CAM) widać przypadki, w których mapa aktywacji **nie skupia się na ustach/nosie (masce)**, tylko na **elementach tła lub ubrania**. Model potrafi wtedy zwrócić wysoką pewność Softmax przy błędnej lub „podejrzanej” decyzji (*shortcut learning*).  
-Wniosek: wyniki liczbowe trzeba zestawiać z XAI; baseline from scratch jest użyteczny do porównania z fine-tuningiem, ale wymaga ostrożnej interpretacji w zastosowaniach praktycznych.
+Pomimo dobrego **accuracy (~86%)** na zbiorze testowym, sama metryka nie gwarantuje poprawnego rozumowania sieci.
+
+**Konieczne jest sprawdzanie Grad-CAM:** czy sieć uczy się / wnioskuje na cechach, które nas interesują (okolice ust i nosa / maska), a **nie** na elementach, których nie chcemy — np. tło, ściana, ubranie, meble.  
+W GUI widać obie sytuacje: bywa poprawna lokalizacja na masce, ale zdarzają się też mapy aktywujące **niepożądane obszary kadru** (*shortcut learning*). Wtedy Softmax może nadal podawać wysoką pewność przy błędnej lub mylącej decyzji.
+
+Wniosek: wyniki liczbowe **zawsze** zestawiać z XAI; baseline from scratch jest OK do porównania z fine-tuningiem, ale bez kontroli Grad-CAM nie wiadomo, *czego* model naprawdę się nauczył.
 
 ## GUI (wrzuć zdjęcie w oknie)
 ```bash
