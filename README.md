@@ -5,22 +5,25 @@
 |-----|--------|--------|
 | 1 | `lab1-karta-projektu` | ✅ |
 | 2 | `lab2-specyfikacja-architektury` | ✅ |
-| 3 | `lab3-eda-walidacja` | ✅ (ten branch / merge) |
-| 4–7 | `lab4`…`lab7` | ⏳ |
+| 3 | `lab3-eda-walidacja` | ✅ |
+| 4 | `lab4-trening-from-scratch` | ✅ (ten branch / merge) |
+| 5 | `lab5-inferencja-serwowanie` | ⏳ |
+| 6 | `lab6-ewaluacja-jakosci` | ⏳ |
+| 7 | `lab7-xai-gradcam` | ⏳ |
 
-## Delta Lab3 vs Lab2
-**Lab2** zamroziło kontrakt I/O i architekturę TinyMaskCNN.  
-**Lab3 dodaje:**
-- EDA: liczebności klas, jakość plików, przykładowe obrazy
-- plan holdout 70/15/15 stratyfikowany (`seed=42`)
-- anti-leakage + metryki oceny
-- kod: `src/data.py`, `scripts/run_eda.py`
-- artefakty: `artifacts/reports/eda_summary.json`, `artifacts/plots/eda_*.png`
+## Delta Lab4 vs Lab3
+**Lab3** dało EDA, split i `src/data.py`.  
+**Lab4 dodaje:**
+- `TinyMaskCNN` (`src/model.py`) + pętla treningu (`src/train.py`)
+- `scripts/train_scratch.py`, `requirements.txt`
+- AdamW + ReduceLROnPlateau + early stopping, checkpoint `artifacts/checkpoints/best.pt`
+- dokumentacja: `docs/lab4_trening_i_ewaluacja.md`
 
-Docs: [`docs/lab3_eda_i_walidacja.md`](docs/lab3_eda_i_walidacja.md)
+## Uruchomienie treningu (WSL)
+```bash
+export MASK_DATA_ROOT=/home/dawid/datasets/mask   # szybki dysk Linux
+python scripts/train_scratch.py
+```
 
 ## Kontrakt I/O
-`[B,3,224,224]` → logity `[B,2]` → Softmax (`with_mask`/`without_mask`)
-
-## Środowisko
-WSL2 + PyTorch CUDA — [`docs/env_wsl_gpu.md`](docs/env_wsl_gpu.md)
+`[B,3,224,224]` → `[B,2]` Softmax
