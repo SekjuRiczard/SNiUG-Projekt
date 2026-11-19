@@ -35,3 +35,10 @@ Desktop.ini
 
 # Temp PDF extracts
 *_extracted.txt
+
+data/raw/
+artifacts/checkpoints/
+artifacts/plots/
+artifacts/reports/
+*.pth
+*.pt
