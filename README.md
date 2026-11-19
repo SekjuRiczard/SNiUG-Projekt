@@ -8,43 +8,37 @@ Klasyfikacja binarna obrazów twarzy: `with_mask` / `without_mask`, z prawdopodo
 ## Dwa podejścia (zestawienie)
 | Gałąź prac | Strategia | Opis |
 |------------|-----------|------|
-| **Ten repozytorium (from scratch)** | Uczenie od zera | Własna / lekka CNN, losowa inicjalizacja wag |
+| **Ten repozytorium (from scratch)** | Uczenie od zera | `TinyMaskCNN`, losowa inicjalizacja wag |
 | Kolega | Fine-tuning | MobileNetV2 (ImageNet) + nowa głowa klasyfikatora |
 
-Wspólny kontrakt I/O, ten sam podział danych i te same metryki — żeby porównanie było miarodajne.
+## Status laboratoriów
+| Lab | Branch | Status |
+|-----|--------|--------|
+| 1 | `lab1-karta-projektu` | ✅ zmergowane |
+| 2 | `lab2-specyfikacja-architektury` | ✅ w toku / merge |
+| 3 | `lab3-eda-walidacja` | ⏳ |
+| 4 | `lab4-trening-from-scratch` | ⏳ |
+| 5 | `lab5-inferencja-serwowanie` | ⏳ (PDF Lab5 brak w folderze — Deployment ze specyfikacji) |
+| 6 | `lab6-ewaluacja-jakosci` | ⏳ |
+| 7 | `lab7-xai-gradcam` | ⏳ |
 
-## Kontrakt I/O (docelowy)
-- **Wejście:** `[B, 3, 224, 224]` RGB, Resize 224, normalizacja ImageNet
+## Delta względem poprzedniego labu (Lab2 vs Lab1)
+**Lab1** miało kartę: temat, źródło danych, plan, opis „co robi model”.  
+**Lab2 dodaje:**
+- kontrakt tensorów `[B,3,224,224]` → `[B,2]`
+- architekturę **TinyMaskCNN** (from scratch) + uzasadnienie CNN
+- strategię uczenia (AdamW, CE, augmentacje, early stopping)
+- listę metryk i zapowiedź Grad-CAM  
+Plik: [`docs/lab2_specyfikacja_architektury.md`](docs/lab2_specyfikacja_architektury.md)
+
+## Kontrakt I/O
+- **Wejście:** `[B, 3, 224, 224]` RGB + ImageNet normalize
 - **Wyjście:** `[B, 2]` logity → Softmax (`0=with_mask`, `1=without_mask`)
 - **Loss:** CrossEntropyLoss
-- **Metryki:** Precision, Recall, F1, Confusion Matrix, ROC-AUC, PR-AUC
+- **Metryki:** Precision, Recall, F1, CM, ROC-AUC, PR-AUC
 
-## Struktura repozytorium
-```
-docs/          # Deliverables per laboratorium projektowe
-src/           # Kod (pojawia się od Lab4 / wcześniej jeśli potrzeba skryptów EDA)
-data/          # Opis danych / ścieżki (same obrazy poza gitem lub LFS)
-artifacts/     # Checkpointy, wykresy (niecommitowane duże pliki)
-```
-
-## Workflow git (branche zadaniowe)
-| Branch | Laboratorium | Deliverable |
-|--------|--------------|-------------|
-| `lab1-karta-projektu` | Lab1 | Karta projektu: tytuł, źródło danych, plan zadań, opis modelu |
-| `lab2-specyfikacja-architektury` | Lab2 | Specyfikacja: kształty tensorów, architektura, strategia, loss/metryki |
-| `lab3-eda-walidacja` | Lab3 | Raport EDA + plan walidacji |
-| `lab4-trening-from-scratch` | Lab4 | Trening from scratch, ewaluacja, checkpoint, raport |
-
-Zasady:
-1. Praca wyłącznie na branchu danego labu.
-2. Po akceptacji wymagań labu → **merge do `main`**.
-3. **Branche zadaniowe zostają** (nie usuwamy ich po merge).
-4. Na danym etapie w `main` jest tylko to, czego wymaga ukończony konspekt (przyrostowo).
-
-## Dataset
-- Specyfikacja zespołu: [Face Mask Dataset (Omkar Gurav, Kaggle)](https://www.kaggle.com/datasets/omkargurav/face-mask-dataset)
-- Lokalna kopia robocza może być w katalogu obok repo (`../Projekt/archive.zip`) — szczegóły w `docs/`.
+## Workflow git
+Po każdym labie: merge do `main`, **branch zostaje**. Przyrostowo — bez wyprzedzania wymagań kolejnego labu.
 
 ## Środowisko
-Trening na GPU (NVIDIA GTX 1650 Ti) w **WSL2 + PyTorch CUDA** — **gotowe i zweryfikowane**.  
-Szczegóły: [`docs/env_wsl_gpu.md`](docs/env_wsl_gpu.md), test: `scripts/check_gpu.py`.
+WSL2 + PyTorch CUDA na GTX 1650 Ti — [`docs/env_wsl_gpu.md`](docs/env_wsl_gpu.md)
