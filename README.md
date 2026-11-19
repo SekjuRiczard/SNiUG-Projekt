@@ -29,7 +29,19 @@
 | PR-AUC | 0.932 |
 | Parametry | 249 922 (wszystkie trenowalne, from scratch) |
 
-## Uruchomienie (WSL)
+## GUI (wrzuć zdjęcie w oknie)
+```bash
+# WSL:
+bash scripts/run_app_wsl.sh
+# potem w Windows: http://localhost:7860
+```
+Albo PowerShell:
+```powershell
+wsl -d Ubuntu -u dawid -- bash "/mnt/c/Users/Dawid/Desktop/Studia/Sieci neuronowe i uczenie glebokie PROJEKT/SNiUG-Projekt/scripts/run_app_wsl.sh"
+```
+W GUI: upload zdjęcia → klasa + %, Softmax, Grad-CAM, metryki testowe i wykresy Lab3/Lab6.
+
+## Uruchomienie CLI (WSL)
 ```bash
 export MASK_DATA_ROOT=/home/dawid/datasets/mask
 python scripts/train_scratch.py
